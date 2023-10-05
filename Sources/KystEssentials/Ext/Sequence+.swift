@@ -5,12 +5,11 @@ extension Sequence {
     }
 }
 
-
 public extension Sequence {
     func asDictionary<Key: Hashable, Value>(block: (Element)->(Value)) -> [Key:Value] where Key == Self.Element {
         self.asDictionary(key: \.self, block: block)
     }
-    
+    ///////
     func asDictionary<Key: Hashable, Value>(key: KeyPath<Element, Key>, block: (Element)->(Value)) -> [Key:Value] {
         var dict: [Key:Value] = [:]
         
@@ -23,6 +22,4 @@ public extension Sequence {
         
         return dict
     }
-    
-    
 }
