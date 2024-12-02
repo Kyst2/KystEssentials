@@ -15,6 +15,11 @@ public extension Date {
         return Calendar.current.component(.day, from: self)
     }
     
+    func adding(month: Int) -> Date {
+        let calendar = Calendar.current
+        return calendar.date(byAdding: .month, value: month, to: self)!
+    }
+    
     func adding(days: Int) -> Date {
         return self.addingTimeInterval(TimeInterval(days*60*60*24))
     }
