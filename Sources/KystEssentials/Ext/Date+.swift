@@ -30,6 +30,10 @@ extension Date {
         Formatter.date.dateStyle = dateStyle
         Formatter.date.timeStyle = timeStyle
         return Formatter.date.string(from: self)
+            .replacingOccurrences(of: "/", with: ".")
+            .replacingOccurrences(of: "-", with: ".")
+            .replacingOccurrences(of: "年", with: ".") // Для японского/китайского формата
+            .replacingOccurrences(of: " ", with: "")
     }
     var localizedDescription: String { localizedDescription() }
 }
